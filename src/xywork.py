@@ -19,6 +19,7 @@ from xytalker import *
 from xydev import *
 import time
 import json
+import os
 
 # def get_file_content(filePath):
 #     with open(filePath, 'rb') as fp:
@@ -38,7 +39,8 @@ def init():
     xyDevs = []
     auto_setup(__file__)
     #配置文件加载
-    f = open(r"./config/conf.json",'r')
+    config_relative_path = '..' + os.sep + 'config' + os.sep + 'conf.json'
+    f = open(config_relative_path,'r')
     conf = f.read()
     f.close()
     paras = json.loads(conf)
